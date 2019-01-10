@@ -16,8 +16,8 @@ public class LocatorsWebDriver {
     public static String NumberOfBedsButton = "//span[@class='minBeds withFlyout withOptions mounted field select Select clickable']";
     public static String SelectNumberOfBeds = "//div[@class='option']/span[contains(text(), '1')]";
     public static String SelectApplyFiltersButton = "//button[@data-rf-test-id='apply-search-options']";
-    public static String SelectListingOption = "//div[@title='Photo of 100 Orange Blossom #98, Irvine, CA 92618']";
     public static String NumberOfBedsElement = "//div[@data-rf-test-id='abp-beds']/div";
     public static String NumberOfBathsElement = "//div[@data-rf-test-id='abp-baths']/div";
-    public static String ListingPriceElement = "//input[@value='$319,000']";
+    public static String ListingPriceElement2 = "//div[@class='info-block price']/div[@class='statsValue']/div";
+    public static String HrefLocatorListing = "//div[@class='homecard']/a[@class='bottom link-override']";
 }

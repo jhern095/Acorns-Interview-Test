@@ -52,8 +52,18 @@ public class RedFinSearch {
         driver.findElement(By.xpath(locator.SelectNumberOfBeds)).click();
         //Clicks 'Apply Filters' button.
         driver.findElement(By.xpath(locator.SelectApplyFiltersButton)).click();
+        //Allows wait to let filter apply.
+        Thread.sleep(10000);
         //Clicks filtered selection.
-        driver.findElement(By.xpath(locator.SelectListingOption)).click();
+        String href = driver.findElement(By.xpath(locator.HrefLocatorListing)).getAttribute("href");
+        System.out.println(href);
+        //Navigates to new tab
+        driver.navigate().to(href);
+        System.out.println(driver.getTitle());
+        //Verify Price Element
+        String price = driver.findElement(By.xpath(locator.ListingPriceElement2)).getText();
+        System.out.println(price);
+        Assert.assertTrue("Price listing does not match search criteria!", price.contains("319,000"));
         //Verifying the number of beds.
         String beds = driver.findElement(By.xpath(locator.NumberOfBedsElement)).getText();
         Assert.assertTrue("Beds listing does not match search criteria!", beds.contains("1"));
@@ -62,9 +72,7 @@ public class RedFinSearch {
         String bath = driver.findElement(By.xpath(locator.NumberOfBathsElement)).getText();
         Assert.assertTrue("Baths listing does not match search criteria!", bath.contains("1"));
         System.out.println(bath);
-        //Verifying price listing.
-        String price = driver.findElement(By.xpath(locator.ListingPriceElement)).getText();
-        Assert.assertTrue("Price listing does not match search criteria!", price.contains("319,000"));
-        System.out.println(price);
+        //Closes the browser.
+        driver.quit();
     }
 }
